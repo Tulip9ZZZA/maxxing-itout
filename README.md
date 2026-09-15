@@ -1,5 +1,11 @@
 <a id="readme-top"></a>
 
+<p align="center">
+  <img src="assets/maxxing-aura.svg" alt="Animated Maxxing aura logo" width="420" />
+</p>
+
+<p align="center"><em>Research deeply. Move decisively. Compound the skill.</em></p>
+
 # Maxxing itout
 
 > **Turn unfamiliar territory into a usable plan.**
@@ -11,7 +17,9 @@ Maxxing is a zero-to-pro acceleration agent for people starting from unfamiliar 
 [![Language](https://img.shields.io/badge/language-TypeScript-111827?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Agent SDK](https://img.shields.io/badge/powered%20by-Claude%20Agent%20SDK-111827?style=flat-square)](https://docs.claude.com/en/api/agent-sdk)
 
-> This is an early V1. The repository currently ships the agent loop, system prompt, configuration, and two reusable skills. A logo and visual identity can be added later without changing the core architecture.
+> This is an early V1. The repository currently ships the agent loop, system prompt, configuration, two reusable skills, and the first Maxxing visual identity.
+
+<sub>If motion is reduced or unavailable in your viewer, the logo remains a static dark-mode mark.</sub>
 
 ## Contents
 
@@ -157,6 +165,7 @@ Keep credentials and provider configuration outside the repository. Do not commi
 
 | Path | Purpose |
 | --- | --- |
+| [`assets/maxxing-aura.svg`](assets/maxxing-aura.svg) | Animated Maxxing aura logo |
 | [`run.ts`](run.ts) | Node/TypeScript entrypoint that invokes the Claude Agent SDK |
 | [`SYSTEM_PROMPT.md`](SYSTEM_PROMPT.md) | Agent identity, loop, tone, and safety boundaries |
 | [`agent.config.json`](agent.config.json) | Model, tools, skills, and behavior flags |

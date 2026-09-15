@@ -1,0 +1,308 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="100%" height="100%">
+  <defs>
+    <!-- Atmospheric Background Gradient -->
+    <radialGradient id="darkBg" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#181b22" />
+      <stop offset="55%" stop-color="#0c0d11" />
+      <stop offset="100%" stop-color="#050608" />
+    </radialGradient>
+
+    <!-- Subtle Rim Aura -->
+    <linearGradient id="rimGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2a3240" stop-opacity="0.2" />
+      <stop offset="50%" stop-color="#000000" stop-opacity="0" />
+      <stop offset="100%" stop-color="#c5d2e8" stop-opacity="0.15" />
+    </linearGradient>
+
+    <!-- Sparkle Glow Filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <style type="text/css">
+      /* 
+        Total Timeline: 6s Loop
+        0s - 1.8s (0% - 30%): Completely Idle / Quiet Monolith
+        1.8s - 5.2s (30% - 86%): Menacing JoJo 'AURA' Swarm + Jaw Sparkles
+        5.2s - 6.0s (86% - 100%): Fade back out to zero
+      */
+
+      /* Reusable JoJo Floating Vibration Keyframes */
+      @keyframes jojoPopFade {
+        0%, 28% {
+          opacity: 0;
+          transform: scale(0.3) translateY(20px) rotate(var(--rot, 0deg));
+        }
+        35% {
+          opacity: 1;
+          transform: scale(1.15) translateY(-5px) rotate(var(--rot, 0deg));
+        }
+        42%, 80% {
+          opacity: 1;
+          transform: scale(1) translateY(-15px) rotate(calc(var(--rot, 0deg) + 2deg));
+        }
+        88% {
+          opacity: 0.9;
+          transform: scale(1.05) translateY(-25px) rotate(var(--rot, 0deg));
+        }
+        95%, 100% {
+          opacity: 0;
+          transform: scale(0.6) translateY(-40px) rotate(var(--rot, 0deg));
+        }
+      }
+
+      /* Jaw Razor Sparkle Keyframe */
+      @keyframes jawTwinkle {
+        0%, 36% {
+          opacity: 0;
+          transform: translate(620px, 590px) scale(0) rotate(0deg);
+        }
+        40% {
+          opacity: 1;
+          transform: translate(620px, 590px) scale(1.3) rotate(45deg);
+        }
+        46% {
+          opacity: 0.7;
+          transform: translate(620px, 590px) scale(0.8) rotate(90deg);
+        }
+        52% {
+          opacity: 1;
+          transform: translate(620px, 590px) scale(1.2) rotate(135deg);
+        }
+        65%, 82% {
+          opacity: 0.9;
+          transform: translate(620px, 590px) scale(1) rotate(180deg);
+        }
+        90%, 100% {
+          opacity: 0;
+          transform: translate(620px, 590px) scale(0) rotate(225deg);
+        }
+      }
+
+      /* Secondary Micro-Sparkle at Chin Tip */
+      @keyframes chinGlint {
+        0%, 42% {
+          opacity: 0;
+          transform: translate(575px, 675px) scale(0);
+        }
+        47% {
+          opacity: 1;
+          transform: translate(575px, 675px) scale(1.1) rotate(25deg);
+        }
+        56% {
+          opacity: 0.4;
+          transform: translate(575px, 675px) scale(0.7) rotate(60deg);
+        }
+        70%, 82% {
+          opacity: 0.95;
+          transform: translate(575px, 675px) scale(1) rotate(90deg);
+        }
+        88%, 100% {
+          opacity: 0;
+          transform: translate(575px, 675px) scale(0);
+        }
+      }
+
+      /* Atmospheric Menacing Pressure Lines */
+      @keyframes menacelines {
+        0%, 30% { opacity: 0; }
+        38%, 82% { opacity: 0.35; }
+        92%, 100% { opacity: 0; }
+      }
+
+      .jojo-text {
+        font-family: "Impact", "Arial Black", "Hiragino Kaku Gothic Pro", sans-serif;
+        font-weight: 900;
+        animation: jojoPopFade 6s cubic-bezier(0.2, 0.8, 0.25, 1) infinite;
+        transform-box: fill-box;
+        transform-origin: center;
+        letter-spacing: 2px;
+      }
+
+      .jojo-t1 { --rot: -18deg; animation-delay: 0s; fill: #dbe4f3; stroke: #000; stroke-width: 4px; }
+      .jojo-t2 { --rot: 14deg;  animation-delay: 0.22s; fill: #bacbe5; stroke: #05070a; stroke-width: 4px; }
+      .jojo-t3 { --rot: -10deg; animation-delay: 0.45s; fill: #f2f6fc; stroke: #000; stroke-width: 4.5px; }
+      .jojo-t4 { --rot: 20deg;  animation-delay: 0.15s; fill: #97aecd; stroke: #07090f; stroke-width: 3.5px; }
+      .jojo-t5 { --rot: -22deg; animation-delay: 0.38s; fill: #c0d3ec; stroke: #000; stroke-width: 3.5px; }
+      .jojo-t6 { --rot: 8deg;   animation-delay: 0.55s; fill: #eaf1fb; stroke: #000; stroke-width: 5px; }
+      .jojo-t7 { --rot: -14deg; animation-delay: 0.3s;  fill: #859dbf; stroke: #040609; stroke-width: 3px; }
+
+      .jaw-sparkle-main {
+        transform-origin: 0px 0px;
+        animation: jawTwinkle 6s ease-in-out infinite;
+      }
+
+      .jaw-sparkle-sec {
+        transform-origin: 0px 0px;
+        animation: chinGlint 6s ease-in-out infinite;
+      }
+
+      .menace-layer {
+        animation: menacelines 6s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <!-- Clean dark background -->
+  <rect width="1000" height="1000" fill="url(#darkBg)" />
+  <rect width="1000" height="1000" fill="url(#rimGlow)" />
+
+  <!-- ==============================
+       JOJO MENACING SPEED LINES (Background layer)
+       ============================== -->
+  <g class="menace-layer" stroke="#c0d1eb" stroke-width="2" opacity="0">
+    <line x1="120" y1="180" x2="220" y2="340" stroke-dasharray="15, 10" />
+    <line x1="850" y1="160" x2="780" y2="300" stroke-dasharray="25, 8" />
+    <line x1="160" y1="520" x2="260" y2="600" stroke-dasharray="10, 15" />
+    <line x1="820" y1="620" x2="720" y2="680" stroke-dasharray="20, 10" />
+  </g>
+
+  <!-- ==============================
+       TORSO, TRAPS & COLLARBONE
+       ============================== -->
+  <g id="torso">
+    <!-- Base Deltoids & Trapezius Silhouette -->
+    <path d="M500,690 L340,670 L140,780 L0,880 L0,1000 L1000,1000 L1000,880 L860,780 L660,670 Z" fill="#0f1117" />
+
+    <!-- Trapezius Planes -->
+    <polygon points="500,690 355,670 410,540 500,560" fill="#13161f" />
+    <polygon points="500,690 645,670 590,540 500,560" fill="#2d3342" />
+    <polygon points="645,670 790,735 700,770 590,690" fill="#3f475a" />
+
+    <!-- Muscular Neck Columns -->
+    <polygon points="410,530 460,710 500,730 500,550" fill="#0a0b0f" />
+    <polygon points="480,690 500,730 520,690 500,620" fill="#06070a" />
+    <polygon points="500,550 500,730 540,710 590,530" fill="#58637a" />
+    <polygon points="540,710 580,700 605,550 590,530" fill="#8895b0" />
+
+    <!-- Clavicles -->
+    <polygon points="500,730 650,715 720,745 640,735" fill="#75829c" />
+    <polygon points="500,730 350,715 280,745 360,735" fill="#171a22" />
+
+    <!-- Chest -->
+    <polygon points="500,735 480,860 500,1000 340,1000 360,770" fill="#0c0e13" />
+    <polygon points="500,735 500,1000 520,860" fill="#1c202a" />
+    <polygon points="500,735 520,860 630,830 620,745" fill="#384052" />
+    <polygon points="520,860 500,1000 660,1000 630,830" fill="#262b37" />
+  </g>
+
+  <!-- ==============================
+       HAIR & CRANIAL BASE
+       ============================== -->
+  <g id="hair-vault">
+    <path d="
+      M345,340 
+      L325,250 L355,260 L345,200 L385,215 L395,155 L435,185 L455,125 
+      L500,165 L545,115 L575,175 L615,135 L625,205 L665,185 L655,255 
+      L695,265 L675,345
+      L630,355 L590,240 L500,245 L410,240 L370,355 Z
+    " fill="#0c0d12" />
+
+    <!-- Chiseled Top Facets -->
+    <polygon points="500,165 545,115 575,175 525,195" fill="#4d576d" />
+    <polygon points="575,175 615,135 625,205 595,215" fill="#697692" />
+    <polygon points="625,205 665,185 655,255 620,245" fill="#58637a" />
+  </g>
+
+  <!-- ==============================
+       FEATURELESS MOG CRANIUM
+       ============================== -->
+  <g id="faceless-chiseled-head">
+    <!-- Brow Shelf -->
+    <polygon points="440,330 665,330 650,355 500,360 430,350" fill="#9ba8bf" />
+    <polygon points="335,345 440,330 430,350 355,360" fill="#202531" />
+
+    <!-- Eyeless Shadow -->
+    <polygon points="325,350 675,350 655,420 500,435 345,420" fill="#08090d" />
+
+    <!-- Zygomatics -->
+    <polygon points="675,350 715,425 655,475 595,435 655,420" fill="#c3cddf" />
+    <polygon points="595,435 655,475 635,505 575,465" fill="#93a0b8" />
+    <polygon points="325,350 285,425 345,475 405,435 345,420" fill="#0c0d12" />
+    <polygon points="405,435 345,475 365,505 425,465" fill="#090a0e" />
+
+    <!-- Keel -->
+    <polygon points="500,360 470,525 500,545 500,360" fill="#13161f" />
+    <polygon points="500,360 500,545 525,520 518,360" fill="#d9e2f0" />
+
+    <!-- Hollow Cheeks -->
+    <polygon points="655,475 595,435 525,510 528,535 565,585 640,540" fill="#4d5568" />
+    <polygon points="595,435 500,510 525,510" fill="#2d3340" />
+    <polygon points="528,535 565,585 520,595 500,545" fill="#161820" />
+    <polygon points="345,475 405,435 475,510 472,535 435,585 360,540" fill="#090a0d" />
+    <polygon points="405,435 500,510 475,510" fill="#060709" />
+    <polygon points="472,535 435,585 480,595 500,545" fill="#040507" />
+
+    <!-- Featureless Midface -->
+    <polygon points="500,545 470,585 500,615 525,585" fill="#13161e" />
+    <polygon points="500,595 525,585 540,620 500,625" fill="#69768e" />
+
+    <!-- Mandible & Chiseled Jaw -->
+    <polygon points="640,540 650,560 575,680 560,650" fill="#d2dcf0" />
+    <polygon points="565,585 640,540 560,650 500,635" fill="#808da5" />
+
+    <!-- Specular Jawline Flare -->
+    <polygon points="648,545 655,565 583,683 577,675" fill="#ffffff" opacity="0.95" />
+
+    <polygon points="360,540 350,560 425,680 440,650" fill="#080a0d" />
+    <polygon points="435,585 360,540 440,650 500,635" fill="#0c0e14" />
+
+    <!-- Chin Block -->
+    <polygon points="500,635 560,650 550,705 500,710" fill="#9faec7" />
+    <polygon points="500,635 440,650 450,705 500,710" fill="#161922" />
+    <polygon points="500,635 525,645 520,708 500,710" fill="#b9c6dc" />
+    <polygon points="500,635 475,645 480,708 500,710" fill="#262c3b" />
+
+    <!-- Jaw Occlusion -->
+    <polygon points="425,680 450,705 500,710 550,705 575,680 600,715 500,740 400,715" fill="#050608" />
+  </g>
+
+  <!-- ==============================
+       JAW SHARP SPARKLES (ANIME GLINT)
+       ============================== -->
+  <!-- Primary Gonial Angle Diamond Sparkle -->
+  <g class="jaw-sparkle-main" filter="url(#glow)">
+    <!-- 4-Point Star Glint -->
+    <path d="M0,-24 Q0,0 24,0 Q0,0 0,24 Q0,0 -24,0 Q0,0 0,-24 Z" fill="#ffffff" />
+    <!-- Diagonal micro ray -->
+    <path d="M-8,-8 L8,8 M-8,8 L8,-8" stroke="#ffffff" stroke-width="2" />
+    <!-- Core Bright Dot -->
+    <circle cx="0" cy="0" r="3.5" fill="#d8e8ff" />
+  </g>
+
+  <!-- Secondary Chin Diamond Accent Sparkle -->
+  <g class="jaw-sparkle-sec" filter="url(#glow)">
+    <path d="M0,-14 Q0,0 14,0 Q0,0 0,14 Q0,0 -14,0 Q0,0 0,-14 Z" fill="#ffffff" />
+    <circle cx="0" cy="0" r="2" fill="#cbe0ff" />
+  </g>
+
+  <!-- ==============================
+       JOJO-STYLE AURA SURGE EVERYWHERE
+       (Idle at start -> Surges all over screen)
+       ============================== -->
+  <!-- Right Upper Flank (Main Heavy Aura) -->
+  <text x="760" y="430" font-size="96" class="jojo-text jojo-t1">AURA</text>
+  
+  <!-- Right Far Flank Floating Up -->
+  <text x="820" y="270" font-size="68" class="jojo-text jojo-t2">AURA</text>
+
+  <!-- Left Low Shoulder Surge -->
+  <text x="170" y="640" font-size="85" class="jojo-text jojo-t3">AURA</text>
+
+  <!-- Left Upper Temple Crest -->
+  <text x="190" y="320" font-size="70" class="jojo-text jojo-t4">AURA</text>
+
+  <!-- Top Right Skyline -->
+  <text x="660" y="150" font-size="58" class="jojo-text jojo-t5">AURA</text>
+
+  <!-- Right Jaw Proximity (Directly complementing the sparkle) -->
+  <text x="700" y="610" font-size="82" class="jojo-text jojo-t6">AURA</text>
+
+  <!-- Left Deep Atmospheric Aura -->
+  <text x="110" y="470" font-size="52" class="jojo-text jojo-t7">AURA</text>
+
+</svg>
