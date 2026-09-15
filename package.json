@@ -1,0 +1,19 @@
+{
+  "name": "maxxing-itout",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A zero-to-pro acceleration agent built on the Claude Agent SDK.",
+  "type": "module",
+  "scripts": {
+    "start": "tsx run.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "tsx": "latest",
+    "typescript": "latest"
+  }
+}

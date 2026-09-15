@@ -1,0 +1,29 @@
+{
+  "name": "maxxing",
+  "description": "Zero-to-pro acceleration agent: researches unfamiliar domains using a multi-lens method, compresses findings into actionable plans, and forges reusable skills on demand.",
+  "model": "claude-sonnet-4-6",
+  "systemPromptFile": "./SYSTEM_PROMPT.md",
+  "skillsDir": "./skills",
+  "tools": {
+    "webSearch": true,
+    "fileTools": true,
+    "codeExecution": false
+  },
+  "skills": [
+    {
+      "id": "deep-research",
+      "path": "./skills/deep-research/SKILL.md",
+      "autoload": true
+    },
+    {
+      "id": "skill-forge",
+      "path": "./skills/skill-forge/SKILL.md",
+      "autoload": true
+    }
+  ],
+  "behaviorFlags": {
+    "createSkillsOnDemand": true,
+    "askAtMostOneClarifyingQuestion": true,
+    "preferArtifactsOverProseForDeliverables": true
+  }
+}
