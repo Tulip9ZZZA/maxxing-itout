@@ -1,85 +1,212 @@
+<a id="readme-top"></a>
+
 # Maxxing itout
 
-> A zero-to-pro acceleration agent for learning unfamiliar skills faster.
+> **Turn unfamiliar territory into a usable plan.**
 
-Maxxing helps you move from **“I have never done this before”** to a concrete, intermediate-level starting point. It researches unfamiliar domains through multiple lenses, compresses the findings into a practical path, builds an artifact you can use immediately, and can forge a reusable skill for future sessions.
+Maxxing is a zero-to-pro acceleration agent for people starting from unfamiliar ground. Give it a skill, tool, subject, or craft you have never touched before; it researches the domain through multiple lenses, compresses the signal into a practical path, builds an artifact you can use immediately, and can forge a reusable skill for the next session.
 
-This is an early **V1** built on the [Claude Agent SDK](https://docs.claude.com/en/api/agent-sdk). The repository currently focuses on the agent loop, prompt, configuration, and two core skills. A visual identity and logo can be added later without changing the core architecture.
+[![Repository](https://img.shields.io/badge/status-V1-111827?style=flat-square)](https://github.com/Tulip9ZZZA/maxxing-itout)
+[![Runtime](https://img.shields.io/badge/runtime-Node.js-111827?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Language](https://img.shields.io/badge/language-TypeScript-111827?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Agent SDK](https://img.shields.io/badge/powered%20by-Claude%20Agent%20SDK-111827?style=flat-square)](https://docs.claude.com/en/api/agent-sdk)
+
+> This is an early V1. The repository currently ships the agent loop, system prompt, configuration, and two reusable skills. A logo and visual identity can be added later without changing the core architecture.
+
+## Contents
+
+- [Why Maxxing](#why-maxxing)
+- [The Maxxing Loop](#the-maxxing-loop)
+- [Architecture](#architecture)
+- [Quick start](#quick-start)
+- [Configuration](#configuration)
+- [Repository map](#repository-map)
+- [Extending with skills](#extending-with-skills)
+- [Boundaries](#boundaries)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Why Maxxing
+
+Most beginner advice is either too shallow to act on or too broad to remember. Maxxing is designed around a tighter progression:
+
+1. **Find the real target.** Define what useful intermediate performance looks like in observable terms.
+2. **Research the right angles.** Separate first principles, expert consensus, fastest-path precedent, and common failure modes.
+3. **Compress the signal.** Keep the mental model, drills, and milestones that matter most.
+4. **Build the next move.** Produce a plan, checklist, template, starter project, or practice artifact.
+5. **Compound the work.** When the domain is recurring, save the method as a reusable skill.
 
 ## The Maxxing Loop
 
-1. **Diagnose** the target, the desired capability, and the learner’s starting point.
-2. **Research** through first principles, expert consensus, common failure modes, and fastest-path precedent.
-3. **Compress** the research into the smallest set of principles, drills, and checkable milestones that matter most.
-4. **Apply / build** a useful plan, checklist, template, starter project, or practice artifact.
-5. **Skill-forge** a reusable `SKILL.md` when the domain is recurring or compounding.
+```mermaid
+flowchart LR
+    A[Diagnose] --> B[Research]
+    B --> C[Compress]
+    C --> D[Apply / Build]
+    D --> E{Recurring domain?}
+    E -- Yes --> F[Skill-forge]
+    E -- No --> G[Deliver]
+    F --> G
+```
+
+### 1. Diagnose
+
+Identify the target, the desired capability, and the learner’s starting point. Ask at most one clarifying question—and only when the answer would materially change the approach.
+
+### 2. Research
+
+Use distinct lenses rather than relying on memory:
+
+- **First principles:** how the domain actually works.
+- **Expert consensus:** what credible practitioners agree matters.
+- **Failure modes:** where beginners reliably go wrong.
+- **Fastest-path precedent:** compressed learning paths worth adapting.
+
+### 3. Compress
+
+Turn the research into a small set of principles, drills, and checkable milestones. The goal is not an exhaustive syllabus; it is a usable mental model.
+
+### 4. Apply / build
+
+Do not stop at explanation. Create the artifact that lets the user act now: a plan, checklist, template, starter project, or practice script.
+
+### 5. Skill-forge
+
+When the domain is recurring or compounding, create `skills/<domain>/SKILL.md` so the next session starts from accumulated knowledge instead of zero.
+
+## Architecture
+
+Maxxing is intentionally file-based in V1:
+
+```text
+User prompt
+    │
+    ▼
+run.ts ────────────────► Claude Agent SDK
+    │                            │
+    ├── SYSTEM_PROMPT.md         ├── WebSearch
+    ├── agent.config.json        ├── Read / Write / Edit
+    └── skills/                  └── Glob / Grep
+             │
+             ▼
+   Research → synthesis → action artifact → optional new skill
+```
+
+The agent has **web search and file tools enabled** but **code execution disabled** in the checked-in configuration.
 
 ## Quick start
 
 ### Prerequisites
 
 - Node.js and npm
-- Access to the Claude Agent SDK and a configured Anthropic authentication method supported by that SDK
-- Web search and file-tool access enabled for the agent session
+- Access to the [Claude Agent SDK](https://docs.claude.com/en/api/agent-sdk)
+- Anthropic authentication configured according to the SDK’s current setup
 
 ### Install
 
 ```bash
+git clone https://github.com/Tulip9ZZZA/maxxing-itout.git
+cd maxxing-itout
 npm install
 ```
 
-### Run
-
-Pass the learning target as a quoted prompt:
+### Run a learning prompt
 
 ```bash
-npx tsx run.ts "I've never touched piano. Get me to intermediate fast."
+npm run start -- "I've never touched piano. Get me to intermediate fast."
 ```
 
-If no prompt is supplied, Maxxing uses a woodworking example:
+You can also invoke the entrypoint directly:
 
 ```bash
-npx tsx run.ts
+npx tsx run.ts "Teach me how to solder from scratch."
 ```
 
-> **Cost note:** Running the agent may incur Claude API usage charges according to your Anthropic account and model settings. This repository itself is free to clone and modify.
+With no prompt, the entrypoint uses a woodworking example:
 
-## What is included
+```bash
+npm run start
+```
 
-- `SYSTEM_PROMPT.md` — Maxxing’s identity, reasoning loop, tone, and safety boundaries.
-- `agent.config.json` — model, tool, skill, and behavior configuration.
-- `run.ts` — Node/TypeScript entrypoint for invoking the Claude Agent SDK.
-- `skills/deep-research/SKILL.md` — multi-lens research workflow.
-- `skills/skill-forge/SKILL.md` — guidance for turning research into reusable skills.
+### Type-check the project
 
-## Extending Maxxing
+```bash
+npm run typecheck
+```
 
-Add a hand-written skill under `skills/<domain>/SKILL.md`. Skills forged during later sessions can live in the same directory and follow the structure in `skills/skill-forge/SKILL.md`.
+> **Usage cost:** GitHub repository operations are free. Running the agent may incur Claude API usage charges according to your Anthropic account, provider setup, and model configuration.
 
-To tune behavior, edit `agent.config.json`—especially `behaviorFlags` and the skill list. Keep secrets and provider credentials outside the repository.
+## Configuration
 
-## Design principles
+`agent.config.json` is the source of truth for the initial agent setup.
 
-- **Evidence before confidence:** current, tool-specific, or version-specific claims should be researched rather than guessed.
-- **Action over explanation:** the default output should help the learner do the next useful thing.
-- **Progress over vibes:** milestones should describe observable capabilities.
-- **Compounding over repetition:** recurring domains should become reusable skills.
-- **Safety over speed:** physical and regulated domains require appropriate caveats and professional boundaries.
+| Setting | Current V1 behavior |
+| --- | --- |
+| Model | `claude-sonnet-4-6` |
+| Web search | Enabled |
+| File tools | Enabled |
+| Code execution | Disabled |
+| Skill directory | `./skills` |
+| Skill creation | Enabled on demand |
+| Clarifying questions | At most one when material |
+| Deliverables | Prefer actionable artifacts over prose |
 
-## Current scope
+Keep credentials and provider configuration outside the repository. Do not commit `.env` files or API keys.
 
-This V1 intentionally does not include a web UI, persistent database, automated code execution, or a logo asset. Those can be layered onto the current file-based architecture later.
+## Repository map
+
+| Path | Purpose |
+| --- | --- |
+| [`run.ts`](run.ts) | Node/TypeScript entrypoint that invokes the Claude Agent SDK |
+| [`SYSTEM_PROMPT.md`](SYSTEM_PROMPT.md) | Agent identity, loop, tone, and safety boundaries |
+| [`agent.config.json`](agent.config.json) | Model, tools, skills, and behavior flags |
+| [`skills/deep-research/SKILL.md`](skills/deep-research/SKILL.md) | Multi-lens research workflow |
+| [`skills/skill-forge/SKILL.md`](skills/skill-forge/SKILL.md) | Reusable-skill creation workflow |
+| [`package.json`](package.json) | Install and development scripts |
+| [`tsconfig.json`](tsconfig.json) | TypeScript compiler settings |
+
+## Extending with skills
+
+Create a directory and add a `SKILL.md` file:
+
+```text
+skills/
+└── your-domain/
+    └── SKILL.md
+```
+
+A useful skill should include:
+
+- a future-facing trigger description;
+- a compressed mental model;
+- observable milestones;
+- repeatable drills or next actions;
+- known failure modes; and
+- a source trail for re-verification.
+
+Use [`skills/skill-forge/SKILL.md`](skills/skill-forge/SKILL.md) as the project’s format guide.
+
+## Boundaries
+
+Maxxing is designed to accelerate learning, not to replace professional judgment. The system prompt requires safety caveats for physically risky domains and clear boundaries for medical, legal, financial, and other regulated topics.
+
+The initial V1 does **not** include a web UI, persistent database, automated code execution, or a logo asset. Those are intentionally separate future layers.
 
 ## Contributing
 
-Issues and pull requests are welcome. When proposing a change, explain which part of the Maxxing Loop it improves and include a reproducible example where possible.
+Issues and pull requests are welcome. When proposing a change:
 
-For local checks, confirm that the TypeScript entrypoint remains readable and that Markdown contains no credentials or private configuration values.
+1. Explain which part of the Maxxing Loop it improves.
+2. Include a reproducible example or prompt where possible.
+3. Run `npm run typecheck` before opening a pull request.
+4. Keep credentials, generated secrets, and private configuration out of commits.
 
 ## License
 
-No license has been added yet. Until a license file is committed, all rights are reserved by the copyright holder. Add an explicit open-source license before encouraging reuse or redistribution.
+No license file has been added yet. Until an explicit license is committed, all rights are reserved by the copyright holder. Add a license before encouraging reuse or redistribution.
 
 ## Project link
 
 [github.com/Tulip9ZZZA/maxxing-itout](https://github.com/Tulip9ZZZA/maxxing-itout)
+
+[Back to top](#readme-top)
