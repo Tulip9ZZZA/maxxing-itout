@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%" role="img" aria-label="Maxxing mascot: a chiseled faceless executive headshot with a crimson scan ring">
+  <defs>
+    <radialGradient id="hsBg" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#1e1b2e" />
+      <stop offset="55%" stop-color="#0a0b10" />
+      <stop offset="100%" stop-color="#050608" />
+    </radialGradient>
+
+    <linearGradient id="hsSuit" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e2430" />
+      <stop offset="50%" stop-color="#12161f" />
+      <stop offset="100%" stop-color="#090b10" />
+    </linearGradient>
+    <linearGradient id="hsLapel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a3242" />
+      <stop offset="100%" stop-color="#10141d" />
+    </linearGradient>
+    <linearGradient id="hsSkinLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4c2a2" />
+      <stop offset="50%" stop-color="#e0a382" />
+      <stop offset="100%" stop-color="#c68362" />
+    </linearGradient>
+    <linearGradient id="hsSkinMid" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d49372" />
+      <stop offset="100%" stop-color="#a8684a" />
+    </linearGradient>
+    <linearGradient id="hsSkinShadow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8d5138" />
+      <stop offset="100%" stop-color="#5e3221" />
+    </linearGradient>
+    <linearGradient id="hsHair" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2b2625" />
+      <stop offset="50%" stop-color="#171414" />
+      <stop offset="100%" stop-color="#0a0808" />
+    </linearGradient>
+    <linearGradient id="hsCrimson" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef233c" />
+      <stop offset="50%" stop-color="#d90429" />
+      <stop offset="100%" stop-color="#8d0801" />
+    </linearGradient>
+    <linearGradient id="hsGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff3b0" />
+      <stop offset="35%" stop-color="#ffd700" />
+      <stop offset="70%" stop-color="#d4a017" />
+      <stop offset="100%" stop-color="#7f5500" />
+    </linearGradient>
+    <linearGradient id="hsShirt" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="70%" stop-color="#dce2ec" />
+      <stop offset="100%" stop-color="#aeb8c7" />
+    </linearGradient>
+
+    <filter id="hsGoldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Stage -->
+  <rect width="800" height="800" fill="url(#hsBg)" />
+
+  <!-- Terrain-scan backdrop: faint survey grid -->
+  <g stroke="#d90429" stroke-width="1" opacity="0.06">
+    <line x1="0" y1="200" x2="800" y2="200" />
+    <line x1="0" y1="400" x2="800" y2="400" />
+    <line x1="0" y1="600" x2="800" y2="600" />
+    <line x1="200" y1="0" x2="200" y2="800" />
+    <line x1="400" y1="0" x2="400" y2="800" />
+    <line x1="600" y1="0" x2="600" y2="800" />
+  </g>
+
+  <!-- Scan ring with survey ticks -->
+  <circle cx="400" cy="330" r="252" fill="none" stroke="#d90429" stroke-width="1.5" stroke-dasharray="12 8" opacity="0.32" />
+  <circle cx="400" cy="330" r="268" fill="none" stroke="#ffd700" stroke-width="1" opacity="0.16" />
+  <g stroke="url(#hsGold)" stroke-width="3" opacity="0.85" filter="url(#hsGoldGlow)">
+    <line x1="400" y1="52" x2="400" y2="82" />
+    <line x1="400" y1="578" x2="400" y2="608" />
+    <line x1="122" y1="330" x2="152" y2="330" />
+    <line x1="648" y1="330" x2="678" y2="330" />
+  </g>
+  <g fill="#ffd700" opacity="0.7" font-family="monospace" font-size="13">
+    <rect x="86" y="120" width="9" height="9" opacity="0.5" />
+    <rect x="706" y="528" width="9" height="9" opacity="0.5" />
+  </g>
+
+  <!-- Ground shadow under the bust -->
+  <ellipse cx="400" cy="782" rx="240" ry="20" fill="#000000" opacity="0.7" />
+
+  <!-- ============ HEAD (from the original rig, centered + scaled) ============ -->
+  <g transform="translate(400 322) scale(2.05) translate(-400 -150)">
+    <!-- Neck -->
+    <polygon points="338,200 462,200 468,278 400,308 332,278" fill="url(#hsSkinMid)" />
+    <polygon points="338,200 462,200 455,252 400,278 345,252" fill="url(#hsSkinShadow)" />
+    <polygon points="342,218 368,232 392,302 350,282" fill="url(#hsSkinLight)" opacity="0.65" />
+    <polygon points="458,218 432,232 408,302 450,282" fill="#4a2518" opacity="0.7" />
+    <polygon points="386,255 414,255 408,298 392,298" fill="#5e3221" opacity="0.6" />
+
+    <!-- Ears -->
+    <polygon points="322,128 308,134 312,168 326,174" fill="url(#hsSkinMid)" stroke="#5e3221" stroke-width="1.5" />
+    <polygon points="478,128 492,134 488,168 474,174" fill="url(#hsSkinShadow)" stroke="#4a2518" stroke-width="1.5" />
+
+    <!-- Face base -->
+    <polygon points="330,82 470,82 480,132 472,175 466,216 400,256 334,216 328,175 320,132" fill="url(#hsSkinLight)" stroke="#5e3221" stroke-width="2" />
+
+    <!-- Right-side split lighting -->
+    <polygon points="400,82 470,82 480,132 472,175 466,216 400,256" fill="url(#hsSkinMid)" opacity="0.82" />
+
+    <!-- Forehead and temple planes -->
+    <polygon points="342,86 400,86 400,122 336,118" fill="#ffe6d4" opacity="0.55" />
+    <polygon points="400,86 458,86 464,118 400,122" fill="url(#hsSkinMid)" opacity="0.6" />
+    <polygon points="330,82 342,86 336,118 320,132" fill="url(#hsSkinMid)" opacity="0.75" />
+    <polygon points="470,82 458,86 464,118 480,132" fill="url(#hsSkinShadow)" opacity="0.85" />
+
+    <!-- Smooth brow shelf — completely clean, no eye sockets, no tasweer -->
+    <polygon points="324,118 390,126 400,124 410,126 476,118 472,142 400,150 328,142" fill="url(#hsSkinLight)" opacity="0.6" />
+    <polygon points="400,124 476,118 472,142 400,150" fill="url(#hsSkinMid)" opacity="0.45" />
+    <line x1="326" y1="120" x2="474" y2="120" stroke="#fff0e5" stroke-width="2" opacity="0.65" />
+
+    <!-- Geometric nasal wedge, faceted sculpture, no nostrils -->
+    <polygon points="388,132 400,130 400,174 384,168" fill="#ffe6d4" opacity="0.75" />
+    <polygon points="400,130 412,132 416,168 400,174" fill="#6e3b26" opacity="0.9" />
+    <polygon points="384,168 400,174 416,168 408,180 392,180" fill="#3d1e12" opacity="0.85" />
+
+    <!-- High zygomatic cheekbone ridges -->
+    <polygon points="322,136 338,144 384,152 384,168 354,172 326,154" fill="#ffd8be" opacity="0.6" />
+    <polygon points="478,136 462,144 416,152 416,168 446,172 474,154" fill="#b57254" opacity="0.55" />
+    <polyline points="325,140 356,158 383,154" fill="none" stroke="#fff0e5" stroke-width="2" opacity="0.7" />
+    <polyline points="475,140 444,158 417,154" fill="none" stroke="#e0a382" stroke-width="1.5" opacity="0.45" />
+
+    <!-- Deep buccal hollows -->
+    <polygon points="326,154 364,170 356,198 332,184" fill="url(#hsSkinShadow)" opacity="0.78" />
+    <line x1="330" y1="158" x2="358" y2="194" stroke="#472316" stroke-width="2" opacity="0.65" />
+    <polygon points="474,154 436,170 444,198 468,184" fill="#3d1e12" opacity="0.88" />
+    <line x1="470" y1="158" x2="442" y2="194" stroke="#24100a" stroke-width="2" opacity="0.75" />
+
+    <!-- Sculpted beard and jawline armor — no mouth, no lips -->
+    <g id="hsBeard">
+      <path d="M326,152 L336,152 L348,188 L374,178 L400,175 L426,178 L452,188 L464,152 L474,152 L468,218 L428,254 L372,254 L332,218 Z" fill="url(#hsHair)" stroke="#070606" stroke-width="2" />
+      <polygon points="362,192 384,176 400,178 400,194 374,198" fill="#3a3332" opacity="0.8" />
+      <polygon points="438,192 416,176 400,178 400,194 426,198" fill="#171414" opacity="0.9" />
+      <polygon points="370,198 400,194 430,198 420,210 380,210" fill="#070606" opacity="0.9" />
+      <polygon points="376,210 400,208 400,252 370,250" fill="#352f2e" opacity="0.65" />
+      <polygon points="400,208 424,210 430,250 400,252" fill="#120f0f" opacity="0.8" />
+      <polyline points="330,165 346,195 374,250 400,252" fill="none" stroke="#524a48" stroke-width="1.5" opacity="0.65" />
+      <polygon points="400,175 426,178 452,188 464,152 474,152 468,218 428,254 400,254" fill="#050404" opacity="0.45" />
+    </g>
+
+    <!-- Swept-back executive pompadour -->
+    <g id="hsHairUp">
+      <path d="M322,145 L316,95 C316,60 355,38 412,42 C465,45 488,68 484,102 L478,145 L466,105 L445,88 L355,88 L334,105 Z" fill="url(#hsHair)" stroke="#070606" stroke-width="2" />
+      <path d="M335,88 C355,60 395,52 455,62 C415,65 375,72 355,88 Z" fill="#3d3736" opacity="0.7" />
+      <path d="M365,52 C405,40 445,48 475,72 C440,58 400,54 365,52 Z" fill="#4f4846" opacity="0.5" />
+      <line x1="342" y1="78" x2="365" y2="92" stroke="#d49372" stroke-width="2" opacity="0.8" />
+    </g>
+
+    <!-- V2 upgrade: gold rim light along the hair crown -->
+    <polyline points="330,84 352,52 400,42 452,50 476,74 482,100" fill="none" stroke="url(#hsGold)" stroke-width="2.5" opacity="0.9" filter="url(#hsGoldGlow)" />
+  </g>
+
+  <!-- ============ COLLAR, TIE, SHOULDERS (executive identity) ============ -->
+  <g id="hsBust">
+    <polygon points="128,800 176,712 300,648 400,676 500,648 624,712 672,800" fill="url(#hsSuit)" stroke="#080a0f" stroke-width="2.5" />
+    <polygon points="128,800 176,712 300,648 330,700 220,800" fill="#222938" opacity="0.6" />
+    <polygon points="672,800 624,712 500,648 470,700 580,800" fill="#0d1017" opacity="0.85" />
+    <polygon points="356,656 444,656 400,776" fill="url(#hsShirt)" stroke="#b0bac9" stroke-width="1.5" />
+    <polygon points="356,656 400,682 366,712 330,690" fill="url(#hsLapel)" stroke="#07090d" stroke-width="2" />
+    <polygon points="444,656 400,682 434,712 470,690" fill="url(#hsLapel)" stroke="#07090d" stroke-width="2" />
+    <polygon points="386,660 414,660 406,694 394,694" fill="url(#hsCrimson)" stroke="#590209" stroke-width="1.5" />
+    <polygon points="394,694 406,694 410,776 400,796 390,776" fill="url(#hsCrimson)" stroke="#590209" stroke-width="1.5" />
+    <rect x="382" y="726" width="36" height="6" rx="2" fill="url(#hsGold)" stroke="#5a3e00" stroke-width="1" filter="url(#hsGoldGlow)" />
+    <circle cx="400" cy="700" r="5" fill="url(#hsGold)" stroke="#4a3200" stroke-width="1" />
+  </g>
+</svg>

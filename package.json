@@ -1,19 +1,31 @@
 {
-  "name": "maxxing-itout",
-  "version": "0.1.0",
+  "name": "maxxing",
+  "version": "2.0.0",
   "private": true,
-  "description": "A zero-to-pro acceleration agent built on the Claude Agent SDK.",
+  "description": "A just-in-time munitions factory for self-learners: scout the terrain through five intelligence lenses, close every gap at the Terrain Gate, then execute.",
   "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "bin": {
+    "maxxing": "./dist/index.js"
+  },
   "scripts": {
-    "start": "tsx run.ts",
-    "typecheck": "tsc --noEmit"
+    "start": "tsx src/index.ts",
+    "maxxing": "tsx src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "eval": "tsx eval/runner.ts"
   },
   "dependencies": {
-    "@anthropic-ai/claude-agent-sdk": "latest"
+    "@anthropic-ai/claude-agent-sdk": "^0.3.322"
   },
   "devDependencies": {
-    "@types/node": "latest",
-    "tsx": "latest",
-    "typescript": "latest"
+    "@types/node": "^24.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "vitest": "^5.1.0"
   }
 }

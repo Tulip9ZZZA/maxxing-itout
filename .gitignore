@@ -1,8 +1,10 @@
 node_modules/
+dist/
+*.tsbuildinfo
 .env
 .env.*
 !.env.example
-.DS_Store
+maxxing.config.json
+eval-results.json
+.maxxing/
 *.log
-coverage/
-dist/

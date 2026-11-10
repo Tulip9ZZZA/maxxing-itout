@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="100%" role="img" aria-label="Maxxing V2: The Gauntlet. Scout the terrain, close the gaps, execute.">
+  <defs>
+    <radialGradient id="heroBg" cx="30%" cy="30%" r="90%">
+      <stop offset="0%" stop-color="#171526" />
+      <stop offset="55%" stop-color="#0a0b10" />
+      <stop offset="100%" stop-color="#050608" />
+    </radialGradient>
+    <linearGradient id="heroGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fff3b0" />
+      <stop offset="45%" stop-color="#ffd700" />
+      <stop offset="100%" stop-color="#d4a017" />
+    </linearGradient>
+    <linearGradient id="heroCrimson" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef233c" />
+      <stop offset="100%" stop-color="#8d0801" />
+    </linearGradient>
+    <linearGradient id="heroSkinLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4c2a2" />
+      <stop offset="50%" stop-color="#e0a382" />
+      <stop offset="100%" stop-color="#c68362" />
+    </linearGradient>
+    <linearGradient id="heroSkinMid" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d49372" />
+      <stop offset="100%" stop-color="#a8684a" />
+    </linearGradient>
+    <linearGradient id="heroSkinShadow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8d5138" />
+      <stop offset="100%" stop-color="#5e3221" />
+    </linearGradient>
+    <linearGradient id="heroHair" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2b2625" />
+      <stop offset="50%" stop-color="#171414" />
+      <stop offset="100%" stop-color="#0a0808" />
+    </linearGradient>
+    <filter id="heroGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="500" fill="url(#heroBg)" />
+
+  <!-- faint survey grid -->
+  <g stroke="#d90429" stroke-width="1" opacity="0.05">
+    <line x1="0" y1="125" x2="1200" y2="125" />
+    <line x1="0" y1="250" x2="1200" y2="250" />
+    <line x1="0" y1="375" x2="1200" y2="375" />
+    <line x1="150" y1="0" x2="150" y2="500" />
+    <line x1="300" y1="0" x2="300" y2="500" />
+    <line x1="1050" y1="0" x2="1050" y2="500" />
+  </g>
+
+  <!-- mascot head, right side -->
+  <g transform="translate(737 122) scale(0.62)">
+    <circle cx="400" cy="150" r="200" fill="none" stroke="#d90429" stroke-width="2" stroke-dasharray="12 8" opacity="0.3" />
+    <g transform="translate(400 150) scale(1.9) translate(-400 -150)">
+      <polygon points="338,200 462,200 468,278 400,308 332,278" fill="url(#heroSkinMid)" />
+      <polygon points="338,200 462,200 455,252 400,278 345,252" fill="url(#heroSkinShadow)" />
+      <polygon points="322,128 308,134 312,168 326,174" fill="url(#heroSkinMid)" stroke="#5e3221" stroke-width="1.5" />
+      <polygon points="478,128 492,134 488,168 474,174" fill="url(#heroSkinShadow)" stroke="#4a2518" stroke-width="1.5" />
+      <polygon points="330,82 470,82 480,132 472,175 466,216 400,256 334,216 328,175 320,132" fill="url(#heroSkinLight)" stroke="#5e3221" stroke-width="2" />
+      <polygon points="400,82 470,82 480,132 472,175 466,216 400,256" fill="url(#heroSkinMid)" opacity="0.82" />
+      <polygon points="342,86 400,86 400,122 336,118" fill="#ffe6d4" opacity="0.55" />
+      <polygon points="400,86 458,86 464,118 400,122" fill="url(#heroSkinMid)" opacity="0.6" />
+      <polygon points="324,118 390,126 400,124 410,126 476,118 472,142 400,150 328,142" fill="url(#heroSkinLight)" opacity="0.6" />
+      <polygon points="400,124 476,118 472,142 400,150" fill="url(#heroSkinMid)" opacity="0.45" />
+      <line x1="326" y1="120" x2="474" y2="120" stroke="#fff0e5" stroke-width="2" opacity="0.65" />
+      <polygon points="388,132 400,130 400,174 384,168" fill="#ffe6d4" opacity="0.75" />
+      <polygon points="400,130 412,132 416,168 400,174" fill="#6e3b26" opacity="0.9" />
+      <polygon points="384,168 400,174 416,168 408,180 392,180" fill="#3d1e12" opacity="0.85" />
+      <polygon points="322,136 338,144 384,152 384,168 354,172 326,154" fill="#ffd8be" opacity="0.6" />
+      <polygon points="478,136 462,144 416,152 416,168 446,172 474,154" fill="#b57254" opacity="0.55" />
+      <polygon points="326,154 364,170 356,198 332,184" fill="url(#heroSkinShadow)" opacity="0.78" />
+      <polygon points="474,154 436,170 444,198 468,184" fill="#3d1e12" opacity="0.88" />
+      <path d="M326,152 L336,152 L348,188 L374,178 L400,175 L426,178 L452,188 L464,152 L474,152 L468,218 L428,254 L372,254 L332,218 Z" fill="url(#heroHair)" stroke="#070606" stroke-width="2" />
+      <polygon points="370,198 400,194 430,198 420,210 380,210" fill="#070606" opacity="0.9" />
+      <polygon points="376,210 400,208 400,252 370,250" fill="#352f2e" opacity="0.65" />
+      <polygon points="400,208 424,210 430,250 400,252" fill="#120f0f" opacity="0.8" />
+      <path d="M322,145 L316,95 C316,60 355,38 412,42 C465,45 488,68 484,102 L478,145 L466,105 L445,88 L355,88 L334,105 Z" fill="url(#heroHair)" stroke="#070606" stroke-width="2" />
+      <path d="M335,88 C355,60 395,52 455,62 C415,65 375,72 355,88 Z" fill="#3d3736" opacity="0.7" />
+      <polyline points="330,84 352,52 400,42 452,50 476,74 482,100" fill="none" stroke="url(#heroGold)" stroke-width="2.5" opacity="0.9" filter="url(#heroGlow)" />
+    </g>
+  </g>
+
+  <!-- typography -->
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="64" y="130" font-size="88" font-weight="800" fill="#f5f6fa" letter-spacing="4">MAXXING</text>
+    <rect x="66" y="152" width="335" height="5" fill="url(#heroCrimson)" />
+    <text x="66" y="196" font-size="26" font-weight="700" fill="url(#heroGold)" letter-spacing="6">V2 · THE GAUNTLET</text>
+    <text x="66" y="248" font-size="22" fill="#c9cdd8">A just-in-time munitions factory for self-learners.</text>
+    <text x="66" y="280" font-size="22" fill="#c9cdd8">Five intelligence lenses map the terrain. A hostile gate</text>
+    <text x="66" y="308" font-size="22" fill="#c9cdd8">closes every gap. Only then does anything execute.</text>
+    <text x="66" y="356" font-size="17" font-style="italic" fill="#8b90a0">"Know your enemy and know your terrain." — Sun Tzu</text>
+  </g>
+
+  <!-- pipeline strip -->
+  <g font-family="Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700">
+    <g>
+      <rect x="30" y="416" width="126" height="36" rx="18" fill="#12151d" stroke="#3a4154" />
+      <text x="93" y="439" text-anchor="middle" fill="#c9cdd8">PREFLIGHT</text>
+      <polygon points="162,434 176,434 169,426" fill="#5a637a" />
+    </g>
+    <g>
+      <rect x="182" y="416" width="126" height="36" rx="18" fill="#12151d" stroke="#3a4154" />
+      <text x="245" y="439" text-anchor="middle" fill="#c9cdd8">5 LENSES</text>
+      <polygon points="314,434 328,434 321,426" fill="#5a637a" />
+    </g>
+    <g>
+      <rect x="334" y="416" width="136" height="36" rx="18" fill="#12151d" stroke="#3a4154" />
+      <text x="402" y="439" text-anchor="middle" fill="#c9cdd8">SYNTHESIS</text>
+      <polygon points="476,434 490,434 483,426" fill="#5a637a" />
+    </g>
+    <g>
+      <rect x="496" y="410" width="176" height="48" rx="24" fill="#1a0a10" stroke="url(#heroCrimson)" stroke-width="2.5" />
+      <text x="584" y="439" text-anchor="middle" fill="#ff5c6c">TERRAIN GATE</text>
+      <!-- loop-back arrow -->
+      <path d="M584,410 C584,352 300,352 262,408" fill="none" stroke="#d90429" stroke-width="1.6" stroke-dasharray="6 5" opacity="0.75" />
+      <polygon points="262,408 268,396 254,397" fill="#d90429" opacity="0.85" />
+      <text x="584" y="480" text-anchor="middle" fill="#d90429" font-size="12" font-style="italic" font-weight="400">material gaps route back to their owning lens</text>
+    </g>
+    <g>
+      <rect x="688" y="416" width="120" height="36" rx="18" fill="#12151d" stroke="#3a4154" />
+      <text x="748" y="439" text-anchor="middle" fill="#c9cdd8">EXECUTE</text>
+      <polygon points="814,434 828,434 821,426" fill="#5a637a" />
+    </g>
+    <g>
+      <rect x="834" y="416" width="116" height="36" rx="18" fill="#12151d" stroke="#3a4154" />
+      <text x="892" y="439" text-anchor="middle" fill="#c9cdd8">VERIFY</text>
+      <polygon points="956,434 970,434 963,426" fill="#5a637a" />
+    </g>
+    <g>
+      <rect x="976" y="416" width="130" height="36" rx="18" fill="#12151d" stroke="url(#heroGold)" stroke-width="1.6" />
+      <text x="1041" y="439" text-anchor="middle" fill="url(#heroGold)">PRESERVE</text>
+    </g>
+  </g>
+</svg>

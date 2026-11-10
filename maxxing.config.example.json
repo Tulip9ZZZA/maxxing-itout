@@ -1,0 +1,11 @@
+{
+  "_comment": "Copy to maxxing.config.json and adjust. Every field is optional; anything omitted falls back to the default.",
+  "model": "claude-sonnet-4-6",
+  "maxGateRounds": 3,
+  "maxTurnsPerLens": 24,
+  "maxTurnsPerExecutor": 48,
+  "minEvidence": 3,
+  "permissionMode": "acceptEdits",
+  "codeExecution": true,
+  "webScout": true
+}
